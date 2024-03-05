@@ -1,11 +1,17 @@
+const express = require('express');
+const app = express(); // Create the Express application
+
+console.log(__dirname);
+const path = require('path');
+const authRoutes = require(path.join(__dirname, 'backend', 'routes', 'authRoutes'));
 require('dotenv').config();
 
 const mongoose = require('mongoose');
 const MONGO_URI = process.env.MONGO_URI;
-const authRoutes = require('./backend/routes/authRoutes');
+
 
 // ... other middleware ... 
-app.use('./backend/routes/authRoutes', authRoutes); // Prefix routes with '/api/auth'
+app.use('/backend/routes/authRoutes', authRoutes); // Prefix routes with '/api/auth'
 mongoose.connect(MONGO_URI)
     .then(() => console.log('Successfully connected to MongoDB'))
     .catch(error => console.error('Error connecting to MongoDB: ', error));

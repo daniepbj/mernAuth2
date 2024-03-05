@@ -1,3 +1,4 @@
+console.log(__dirname);
 const express = require('express');
 const router = express.Router();
 const authController = require('../models/controllers/authController'); // Enter the 'models' folder first
@@ -5,4 +6,5 @@ const authController = require('../models/controllers/authController'); // Enter
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 
-module.exports = router; 
+module.exports = router;
+
